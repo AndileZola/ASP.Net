@@ -3,26 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace index
+namespace MvcCustomAuthourization
 {
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            Application["Session"] = 0;
-        }
-        protected void Session_Start()
-        {
-            ;
-        }
-        protected void Session_End()
-        {
-            ;
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
